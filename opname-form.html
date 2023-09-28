@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>eBusiness Bootstrap Template</title>
+    <title>Opname Form</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
@@ -243,31 +243,47 @@
 
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 <script>
-    var nama = document.getElementById("namaLengkap").value;
-    var tanggalLahir = document.getElementById("tanggalLahir").value;
-    var alamat = document.getElementById("alamat").value;
-    var noHP = document.getElementById("noHP").value;
-    var email = document.getElementById("email").value;
+var data = {
+  nama: "a",
+  tanggalLahir: "a",
+  alamat: "a",
+  noHP: "a",
+  email: "a",
+};
+
+    // data.nama = document.getElementById("namaLengkap").value;
+    // data.tanggalLahir = document.getElementById("tanggalLahir").value;
+    // data.alamat = document.getElementById("alamat").value;
+    // data.noHP = document.getElementById("noHP").value;
+    // data.email = document.getElementById("email").value;
     function checkEmptyInput(){
-         nama = document.getElementById("namaLengkap").value;
-         tanggalLahir = document.getElementById("tanggalLahir").value;
-         alamat = document.getElementById("alamat").value;
-         noHP = document.getElementById("noHP").value;
-         email = document.getElementById("email").value;
-        if (nama == null || nama =="") return true;
-        if (tanggalLahir == null ||  tanggalLahir =="") return true;
-        if (alamat == null ||alamat =="") return true;
-        if (noHP == null || noHP=="") return true;
-        if (email == null ||email =="") return true;
-        return false;
+         data.nama = document.getElementById("namaLengkap").value;
+         data.tanggalLahir = document.getElementById("tanggalLahir").value;
+         data.alamat = document.getElementById("alamat").value;
+         data.noHP = document.getElementById("noHP").value;
+         data.email = document.getElementById("email").value;
+        if (data.nama == null || data.nama =="") return true;
+        if (data.tanggalLahir == null ||  data.tanggalLahir =="") return true;
+        if (data.alamat == null ||data.alamat =="") return true;
+        if (data.noHP == null || data.noHP=="") return true;
+        if (data.email == null ||data.email =="") return true;
+        var hasil = (data.email == null ||data.email =="") ?  true : false;
+        return hasil;
     }
     
     function validateInput(){
         // var format = /^\(?([0-9]{3})\)??([0-9]{3})[-]s?([0-9]{4})$/;
-        if(typeof nama != "string") return false; 
-        if(typeof alamat != "string") return false; 
-        if(email.search('@') == -1) return false; 
-        // if(typeof !noHP.match(format)) return false; 
+        if(typeof data.nama != "string") return false; 
+        if(typeof data.alamat != "string") return false; 
+        if(data.email.search('@') == -1) return false; 
+        // if(typeof !noHP.match(format)) return false;
+        // console.log("noHP: "+data.noHP.split(""));
+        // data.noHP.split("").forEach((function (number) {
+        //   console.log(parseInt( number));
+        // }))
+        var filteredData = data.noHP.split("").filter((function (number){return !isNaN(parseInt(number))})).join(""); 
+        console.log(filteredData);
+        data.noHP = filteredData;
         return true;
     }
         function submitSignUpData(){
@@ -280,35 +296,54 @@
             <tr>
               <th>  </th>
               <th>Data</th>
-            </tr>
-            <tr>
-              <td>Nama</td>
-              <td>${nama}</td>
-            </tr>
-            <tr>
-              <td>Tanggal Lahir</td>
-              <td>${tanggalLahir}</td>
-            </tr>
-            <tr>
-              <td>Alamat</td>
-              <td>${alamat}</td>
-            </tr>
-            <tr>
-              <td>Nomor HP</td>
-              <td>${noHP}</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>${email}</td>
-            </tr>
-            </table>
+            </tr>`;
+            Object.keys(data).forEach(key => {
+              table += `<tr>
+              <td>${key}</td>
+              <td>${data[key]}</td>
+            </tr>`
+            });
+            // `<tr>
+            //   <td>Nama</td>
+            //   <td>${data.nama}</td>
+            // </tr>
+            // <tr>
+            //   <td>Tanggal Lahir</td>
+            //   <td>${data.tanggalLahir}</td>
+            // </tr>
+            // <tr>
+            //   <td>Alamat</td>
+            //   <td>${data.alamat}</td>
+            // </tr>
+            // <tr>
+            //   <td>Nomor HP</td>
+            //   <td>${data.noHP}</td>
+            // </tr>
+            // <tr>
+            //   <td>Email</td>
+            //   <td>${data.email}</td>
+            // </tr>
+            table +=`</table>
     </div>`;
+          localStorage.setItem("nama", data.nama);
+          localStorage.setItem("tanggalLahir", data.tanggalLahir);
+          localStorage.setItem("alamat", data.alamat);
+          localStorage.setItem("noHP", data.noHP);
+          localStorage.setItem("email", data.email);
                     Swal.fire(
                         {
                             title: "Pendaftaran telah berhasil dilakukan",
                             text: "Berikut adalah data yang diinput ke dalam sistem",
                             html: table,
                         })
+                        var output = "";
+                        output +=
+                        localStorage.getItem("nama")+
+                        localStorage.getItem("tanggalLahir")+
+                        localStorage.getItem("alamat")+
+                        localStorage.getItem("noHP")+
+                        localStorage.getItem("email");
+                        console.log(output);
                 }
                 else{
                     Swal.fire(
