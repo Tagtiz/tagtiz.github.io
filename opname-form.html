@@ -7,20 +7,16 @@
     <meta content="" name="keywords" />
     <meta content="" name="description" />
 
-    <!-- Favicons -->
     <link href="img/favicon.png" rel="icon" />
     <link href="img/apple-touch-icon.png" rel="apple-touch-icon" />
 
-    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900"
       rel="stylesheet"
     />
 
-    <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Libraries CSS Files -->
     <link href="lib/nivo-slider/css/nivo-slider.css" rel="stylesheet" />
     <link href="lib/owlcarousel/owl.carousel.css" rel="stylesheet" />
     <link href="lib/owlcarousel/owl.transitions.css" rel="stylesheet" />
@@ -28,35 +24,23 @@
     <link href="lib/animate/animate.min.css" rel="stylesheet" />
     <link href="lib/venobox/venobox.css" rel="stylesheet" />
 
-    <!-- Nivo Slider Theme -->
     <link href="css/nivo-slider-theme.css" rel="stylesheet" />
 
-    <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet" />
 
-    <!-- Responsive Stylesheet File -->
     <link href="css/responsive.css" rel="stylesheet" />
 
-    <!-- =======================================================
-    Theme Name: eBusiness
-    Theme URL: https://bootstrapmade.com/ebusiness-bootstrap-corporate-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
   </head>
 
   <body data-spy="scroll" data-target="#navbar-example">
     <div id="preloader"></div>
 
     <header>
-      <!-- header-area start -->
       <div id="sticker" class="header-area">
         <div class="container">
           <div class="row">
             <div class="col-md-12 col-sm-12">
-              <!-- Navigation -->
               <nav class="navbar navbar-default">
-                <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                   <button
                     type="button"
@@ -70,17 +54,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <!-- Brand -->
                   <a
                     class="navbar-brand page-scroll sticky-logo"
                     href="index.html"
                   >
                     <h1>Rumah Sakit Jakarta</h1>
-                    <!-- Uncomment below if you prefer to use an image logo -->
-                    <!-- <img src="img/logo.png" alt="" title=""> -->
                   </a>
                 </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
                 <div
                   class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1"
                   id="navbar-example"
@@ -106,18 +86,13 @@
                   </li>
                 </ul>
                 </div>
-                <!-- navbar-collapse -->
               </nav>
-              <!-- END: Navigation -->
             </div>
           </div>
         </div>
       </div>
-      <!-- header-area end -->
     </header>
-    <!-- header end -->
 
-    <!-- Start Bottom Header -->
     <div class="header-bg page-area">
       <div class="home-overly"></div>
       <div class="container">
@@ -144,7 +119,6 @@
         </div>
       </div>
     </div>
-    <!-- END Header -->
     <div class="blog-page area-padding" style="padding-bottom: 0px;">
     <div class= "container bg-black">
         <form>
@@ -178,7 +152,6 @@
     <div class="clearfix"></div>
 
     
-    <!-- Start Footer bottom Area -->
     <footer>
       <div class="footer-area">
         <div class="container">
@@ -199,7 +172,6 @@
                 </div>
               </div>
             </div>
-            <!-- end single footer -->
             <div class="col-md-6 col-sm-6 col-xs-12">
               <div class="footer-content">
                 <div class="footer-head">
@@ -211,7 +183,6 @@
                 </div>
               </div>
             </div>
-            <!-- end single footer -->
           </div>
         </div>
       </div>
@@ -226,12 +197,6 @@
                 </p>
               </div>
               <div class="credits">
-                <!--
-                All the links in the footer should remain intact.
-                You can delete the links only if you purchased the pro version.
-                Licensing information: https://bootstrapmade.com/license/
-                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eBusiness
-              -->
                 Designed by
                 <a href="https://bootstrapmade.com/">BootstrapMade</a>
               </div>
@@ -251,11 +216,6 @@ var data = {
   email: "a",
 };
 
-    // data.nama = document.getElementById("namaLengkap").value;
-    // data.tanggalLahir = document.getElementById("tanggalLahir").value;
-    // data.alamat = document.getElementById("alamat").value;
-    // data.noHP = document.getElementById("noHP").value;
-    // data.email = document.getElementById("email").value;
     function checkEmptyInput(){
          data.nama = document.getElementById("namaLengkap").value;
          data.tanggalLahir = document.getElementById("tanggalLahir").value;
@@ -272,15 +232,9 @@ var data = {
     }
     
     function validateInput(){
-        // var format = /^\(?([0-9]{3})\)??([0-9]{3})[-]s?([0-9]{4})$/;
         if(typeof data.nama != "string") return false; 
         if(typeof data.alamat != "string") return false; 
         if(data.email.search('@') == -1) return false; 
-        // if(typeof !noHP.match(format)) return false;
-        // console.log("noHP: "+data.noHP.split(""));
-        // data.noHP.split("").forEach((function (number) {
-        //   console.log(parseInt( number));
-        // }))
         var filteredData = data.noHP.split("").filter((function (number){return !isNaN(parseInt(number))})).join(""); 
         console.log(filteredData);
         data.noHP = filteredData;
@@ -303,26 +257,6 @@ var data = {
               <td>${data[key]}</td>
             </tr>`
             });
-            // `<tr>
-            //   <td>Nama</td>
-            //   <td>${data.nama}</td>
-            // </tr>
-            // <tr>
-            //   <td>Tanggal Lahir</td>
-            //   <td>${data.tanggalLahir}</td>
-            // </tr>
-            // <tr>
-            //   <td>Alamat</td>
-            //   <td>${data.alamat}</td>
-            // </tr>
-            // <tr>
-            //   <td>Nomor HP</td>
-            //   <td>${data.noHP}</td>
-            // </tr>
-            // <tr>
-            //   <td>Email</td>
-            //   <td>${data.email}</td>
-            // </tr>
             table +=`</table>
     </div>`;
           localStorage.setItem("nama", data.nama);
@@ -364,7 +298,6 @@ var data = {
             }
         }
 </script>
-    <!-- JavaScript Libraries -->
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
@@ -380,7 +313,6 @@ var data = {
     <script src="lib/appear/jquery.appear.js"></script>
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
 
-    <!-- Contact Form JavaScript File -->
     <script src="contactform/contactform.js"></script>
 
     <script src="js/main.js"></script>
